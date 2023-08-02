@@ -27,9 +27,10 @@
 
 #include "PID.h"
 #include "printf.h"
-//#include "bsp_oled.h"
+#include "control.h"
 #include "oled.h"
 #include "stdio.h"
+#include "string.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -59,7 +60,7 @@ extern float X_data,Y_data;
 
 uint8_t sbuf[20];
 
-
+extern float Init_CompareX;
 
 /* USER CODE END PV */
 
@@ -113,16 +114,19 @@ int main(void)
   HAL_TIM_PWM_Start(&htim2,TIM_CHANNEL_1);
   HAL_TIM_PWM_Start(&htim2,TIM_CHANNEL_2);
 
-  __HAL_TIM_SET_COMPARE(&htim2,TIM_CHANNEL_1,1500);
-  __HAL_TIM_SET_COMPARE(&htim2,TIM_CHANNEL_2,1500);
+  __HAL_TIM_SET_COMPARE(&htim2,TIM_CHANNEL_1,150);
+  __HAL_TIM_SET_COMPARE(&htim2,TIM_CHANNEL_2,150);
 
-//  OLED_Clear();
   OLED_Init();
   OLED_DisplayTurn(1);
+
+  Servo_X_Angle_Set(0);
+  Servo_Y_Angle_Set(0);
 
   PID_Init(&pid_Servo_x);
   PID_Init(&pid_Servo_y);
 
+//  Servo_Init();
 
   /* USER CODE END 2 */
 
@@ -133,8 +137,36 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+//    Servo_X_Angle_Set(15);
+//    Servo_Y_Angle_Set(-15);
+//    HAL_Delay(1000);
+//
+//    Servo_X_Angle_Set(-15);
+//    Servo_Y_Angle_Set(-15);
+//    HAL_Delay(1000);
+//
+//    Servo_X_Angle_Set(-15);
+//    Servo_Y_Angle_Set(15);
+//    HAL_Delay(1000);
+//
+//    Servo_X_Angle_Set(15);
+//    Servo_Y_Angle_Set(15);
+//    HAL_Delay(1000);
+
+
+
+
+    memset(sbuf,0,20);
     sprintf((char*)sbuf,"x:%d y:%d ",(int)pid_Servo_x.actual,(int)pid_Servo_y.actual);
+    OLED_ShowString(0,0,sbuf,12);
+
+    memset(sbuf,0,20);
+    sprintf((char*)sbuf,"x:%d y:%d ",(int)pid_Servo_x.out,(int)pid_Servo_y.out);
     OLED_ShowString(0,2,sbuf,12);
+
+    memset(sbuf,0,20);
+    sprintf((char*)sbuf,"x:%f ",Init_CompareX);
+    OLED_ShowString(0,4,sbuf,12);
 
     HAL_Delay(10);
 

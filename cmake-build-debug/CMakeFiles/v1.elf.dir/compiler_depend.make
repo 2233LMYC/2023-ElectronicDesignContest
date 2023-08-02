@@ -103,10 +103,15 @@ CMakeFiles/v1.elf.dir/Core/Src/main.c.obj: E:/LMTX/Electric_racing/v1/Core/Src/m
   D:/clion/tools/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/sched.h \
   D:/clion/tools/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/machine/types.h \
   D:/clion/tools/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/stdio.h \
+  E:/LMTX/Electric_racing/v1/control/control.h \
   E:/LMTX/Electric_racing/v1/oled_sim/oled.h \
   D:/clion/tools/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/stdlib.h \
   D:/clion/tools/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/machine/stdlib.h \
-  D:/clion/tools/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/alloca.h
+  D:/clion/tools/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/alloca.h \
+  D:/clion/tools/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/string.h \
+  D:/clion/tools/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/_locale.h \
+  D:/clion/tools/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/strings.h \
+  D:/clion/tools/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/string.h
 
 CMakeFiles/v1.elf.dir/Core/Src/stm32f1xx_hal_msp.c.obj: E:/LMTX/Electric_racing/v1/Core/Src/stm32f1xx_hal_msp.c \
   E:/LMTX/Electric_racing/v1/Core/Inc/main.h \
@@ -1127,11 +1132,21 @@ D:/clion/tools/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.
 
 D:/clion/tools/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/machine/types.h:
 
+E:/LMTX/Electric_racing/v1/control/control.h:
+
 E:/LMTX/Electric_racing/v1/oled_sim/oled.h:
 
 D:/clion/tools/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/stdlib.h:
 
 D:/clion/tools/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/machine/stdlib.h:
+
+D:/clion/tools/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/_locale.h:
+
+D:/clion/tools/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/strings.h:
+
+E:/LMTX/Electric_racing/v1/control/control.c:
+
+D:/clion/tools/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/string.h:
 
 E:/LMTX/Electric_racing/v1/Core/Src/stm32f1xx_it.c:
 
@@ -1144,8 +1159,6 @@ D:/clion/tools/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.
 D:/clion/tools/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/time.h:
 
 D:/clion/tools/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/machine/time.h:
-
-D:/clion/tools/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/_locale.h:
 
 D:/clion/tools/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/errno.h:
 
@@ -1163,15 +1176,7 @@ E:/LMTX/Electric_racing/v1/Core/Src/sysmem.c:
 
 E:/LMTX/Electric_racing/v1/Core/Src/tim.c:
 
-E:/LMTX/Electric_racing/v1/control/control.h:
-
 E:/LMTX/Electric_racing/v1/Core/Src/usart.c:
-
-D:/clion/tools/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/strings.h:
-
-E:/LMTX/Electric_racing/v1/control/control.c:
-
-D:/clion/tools/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/string.h:
 
 E:/LMTX/Electric_racing/v1/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c:
 

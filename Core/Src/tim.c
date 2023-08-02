@@ -41,12 +41,8 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
       tim_cnt++;
       pid_Servo_x.actual = X_data;
       pid_Servo_x.out += Position_PID(&pid_Servo_x);
+      pid_Servo_x.out += x_default;
 
-      pid_Servo_y.actual = Y_data;
-      pid_Servo_y.out += Position_PID(&pid_Servo_y);
-
-      Set_Servo_angle(x_servo,pid_Servo_x.out);
-      Set_Servo_angle(y_servo,pid_Servo_y.out);
 
       if(tim_cnt >= 10)
       {
@@ -79,9 +75,9 @@ void MX_TIM2_Init(void)
 
   /* USER CODE END TIM2_Init 1 */
   htim2.Instance = TIM2;
-  htim2.Init.Prescaler = 71;
+  htim2.Init.Prescaler = 719;
   htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim2.Init.Period = 19999;
+  htim2.Init.Period = 1999;
   htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim2.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_ENABLE;
   if (HAL_TIM_Base_Init(&htim2) != HAL_OK)
