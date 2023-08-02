@@ -26,10 +26,11 @@
 #include "control.h"
 #include "usart.h"
 #include "gpio.h"
+#include "stdio.h"
 
+extern PID_struct WPospid_Servo_x;
+extern PID_struct NPospid_Servo_X;
 
-extern PID_struct pid_Servo_x;
-extern PID_struct pid_Servo_y;
 extern float X_data,Y_data;
 
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
@@ -39,10 +40,13 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
     if(htim->Instance == TIM4)//10ms
     {
       tim_cnt++;
-      pid_Servo_x.actual = X_data;
-      pid_Servo_x.out += Position_PID(&pid_Servo_x);
-      pid_Servo_x.out += x_default;
 
+      NPospid_Servo_X.actual = X_data;
+
+      NPospid_Servo_X.out = Position_PID(&NPospid_Servo_X);
+
+      Coor_To_Angles_PIDx(X_data, 43);
+      Coor_To_Angles_PIDy(Y_data, 432);
 
       if(tim_cnt >= 10)
       {

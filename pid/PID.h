@@ -13,7 +13,11 @@ typedef struct
 	float out;
 }PID_struct;
 
+extern PID_struct Coordinate_To_Anglex;   // 坐标转换为角度
+extern PID_struct Coordinate_To_Angley;
+
 void PID_Init(PID_struct*pid);
+void PID_Param_Init(PID_struct* pid, float Kp, float Ki, float Kd);
 float Position_PID(PID_struct*pid);
 float Incremental_PID(PID_struct*pid);
 

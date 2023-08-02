@@ -54,8 +54,10 @@
 extern uint8_t rec;
 extern float X_data,Y_data;
 
-extern PID_struct pid_Servo_x;
-extern PID_struct pid_Servo_y;
+
+extern PID_struct WPospid_Servo_x;
+extern PID_struct NPospid_Servo_X;
+
 extern float X_data,Y_data;
 
 uint8_t sbuf[20];
@@ -123,9 +125,11 @@ int main(void)
   Servo_X_Angle_Set(0);
   Servo_Y_Angle_Set(0);
 
-  PID_Init(&pid_Servo_x);
-  PID_Init(&pid_Servo_y);
+  PID_Init(&NPospid_Servo_X);
+  PID_Init(&WPospid_Servo_x);
 
+  PID_Param_Init(&Coordinate_To_Anglex, 0.06, 0.00315, -0.00);
+  PID_Param_Init(&Coordinate_To_Angley, 0.06, 0.00315, -0.00);
 //  Servo_Init();
 
   /* USER CODE END 2 */
@@ -137,36 +141,23 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-//    Servo_X_Angle_Set(15);
-//    Servo_Y_Angle_Set(-15);
-//    HAL_Delay(1000);
-//
-//    Servo_X_Angle_Set(-15);
-//    Servo_Y_Angle_Set(-15);
-//    HAL_Delay(1000);
-//
-//    Servo_X_Angle_Set(-15);
-//    Servo_Y_Angle_Set(15);
-//    HAL_Delay(1000);
-//
-//    Servo_X_Angle_Set(15);
-//    Servo_Y_Angle_Set(15);
-//    HAL_Delay(1000);
 
 
+//    PID_TEST();
+//    Func_1();
 
+//    Servo_X_Angle_Set(0);
+//    Servo_Y_Angle_Set(0);
 
     memset(sbuf,0,20);
-    sprintf((char*)sbuf,"x:%d y:%d ",(int)pid_Servo_x.actual,(int)pid_Servo_y.actual);
+    sprintf((char*)sbuf,"x:%d y:%d",(int)X_data,(int)Y_data);
     OLED_ShowString(0,0,sbuf,12);
-
-    memset(sbuf,0,20);
-    sprintf((char*)sbuf,"x:%d y:%d ",(int)pid_Servo_x.out,(int)pid_Servo_y.out);
-    OLED_ShowString(0,2,sbuf,12);
-
-    memset(sbuf,0,20);
-    sprintf((char*)sbuf,"x:%f ",Init_CompareX);
-    OLED_ShowString(0,4,sbuf,12);
+    printf("out: %.2f\r\n",Coordinate_To_Anglex.out);
+    Servo_X_Angle_Set(Coordinate_To_Anglex.out);
+    Servo_Y_Angle_Set(Coordinate_To_Angley.out);
+//    memset(sbuf,0,20);
+//    sprintf((char*)sbuf,"x:%d ",(int)NPospid_Servo_X.out);
+//    OLED_ShowString(0,4,sbuf,12);
 
     HAL_Delay(10);
 

@@ -1,7 +1,10 @@
 #include "PID.h"
 
-PID_struct pid_Servo_x;
-PID_struct pid_Servo_y;
+PID_struct WPospid_Servo_x;
+PID_struct NPospid_Servo_X;
+PID_struct Coordinate_To_Anglex;
+PID_struct Coordinate_To_Angley;
+
 
 void PID_Init(PID_struct*pid)
 {
@@ -15,6 +18,13 @@ void PID_Init(PID_struct*pid)
 	pid->Kp = 0;
 	pid->Ki = 0;
 	pid->Kd = 0;
+}
+
+void PID_Param_Init(PID_struct* pid, float Kp, float Ki, float Kd)
+{
+  pid->Kp = Kp;
+  pid->Ki = Ki;
+  pid->Kd = Kd;
 }
 
 /**************************************************************************
