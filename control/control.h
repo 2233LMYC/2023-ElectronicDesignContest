@@ -10,12 +10,19 @@
 
 typedef struct {
 
+   char _10ms;
 
-}flag;
+}fg;
 
 
+enum {
+    x_servo = 1,
+    y_servo,
 
+};
 
+void Set_Servo_angle(int servo,float pwm);
+void Servo_Init(void);
 
 
 

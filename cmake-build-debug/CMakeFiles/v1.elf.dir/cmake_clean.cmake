@@ -50,8 +50,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/v1.elf.dir/control/control.c.obj.d"
   "CMakeFiles/v1.elf.dir/pid/PID.c.obj"
   "CMakeFiles/v1.elf.dir/pid/PID.c.obj.d"
-  "CMakeFiles/v1.elf.dir/servo/servo.c.obj"
-  "CMakeFiles/v1.elf.dir/servo/servo.c.obj.d"
   "v1.elf"
   "v1.elf.manifest"
   "v1.elf.pdb"

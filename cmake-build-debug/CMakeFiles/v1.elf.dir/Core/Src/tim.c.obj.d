@@ -34,4 +34,9 @@ CMakeFiles/v1.elf.dir/Core/Src/tim.c.obj: \
  E:\LMTX\Electric_racing\v1\Drivers\STM32F1xx_HAL_Driver\Inc/stm32f1xx_hal_pwr.h \
  E:\LMTX\Electric_racing\v1\Drivers\STM32F1xx_HAL_Driver\Inc/stm32f1xx_hal_tim.h \
  E:\LMTX\Electric_racing\v1\Drivers\STM32F1xx_HAL_Driver\Inc/stm32f1xx_hal_tim_ex.h \
- E:\LMTX\Electric_racing\v1\Drivers\STM32F1xx_HAL_Driver\Inc/stm32f1xx_hal_uart.h
+ E:\LMTX\Electric_racing\v1\Drivers\STM32F1xx_HAL_Driver\Inc/stm32f1xx_hal_uart.h \
+ E:\LMTX\Electric_racing\v1\pid/PID.h \
+ E:\LMTX\Electric_racing\v1\control/control.h \
+ E:\LMTX\Electric_racing\v1\Core\Inc/main.h \
+ E:\LMTX\Electric_racing\v1\Core\Inc/usart.h \
+ E:\LMTX\Electric_racing\v1\Core\Inc/gpio.h

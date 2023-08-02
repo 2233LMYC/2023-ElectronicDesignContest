@@ -27,7 +27,6 @@
 
 #include "PID.h"
 #include "printf.h"
-#include "servo.h"
 
 /* USER CODE END Includes */
 
@@ -51,6 +50,11 @@
 /* USER CODE BEGIN PV */
 extern uint8_t rec;
 extern float X_data,Y_data;
+
+extern PID_struct pid_Servo_x;
+extern PID_struct pid_Servo_y;
+extern float X_data,Y_data;
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -105,6 +109,9 @@ int main(void)
   __HAL_TIM_SET_COMPARE(&htim2,TIM_CHANNEL_1,1500);
   __HAL_TIM_SET_COMPARE(&htim2,TIM_CHANNEL_2,1500);
 
+  PID_Init(&pid_Servo_x);
+  PID_Init(&pid_Servo_y);
+
 
   /* USER CODE END 2 */
 
@@ -115,6 +122,10 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+
+    printf("test!\r\n");
+    HAL_Delay(100);
+
   }
   /* USER CODE END 3 */
 }

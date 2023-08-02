@@ -22,6 +22,42 @@
 
 /* USER CODE BEGIN 0 */
 
+#include "PID.h"
+#include "control.h"
+#include "usart.h"
+#include "gpio.h"
+
+
+extern PID_struct pid_Servo_x;
+extern PID_struct pid_Servo_y;
+extern float X_data,Y_data;
+
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+{
+    static int tim_cnt = 0;
+
+    if(htim->Instance == TIM4)//10ms
+    {
+      tim_cnt++;
+      pid_Servo_x.actual = X_data;
+      pid_Servo_x.out += Position_PID(&pid_Servo_x);
+
+      pid_Servo_y.actual = Y_data;
+      pid_Servo_y.out += Position_PID(&pid_Servo_y);
+
+      Set_Servo_angle(x_servo,pid_Servo_x.out);
+      Set_Servo_angle(y_servo,pid_Servo_y.out);
+
+      if(tim_cnt >= 10)
+      {
+        HAL_GPIO_TogglePin(GPIOC,GPIO_PIN_13);
+        tim_cnt = 0;
+      }
+
+
+    }
+
+}
 /* USER CODE END 0 */
 
 TIM_HandleTypeDef htim2;
@@ -147,6 +183,10 @@ void HAL_TIM_Base_MspInit(TIM_HandleTypeDef* tim_baseHandle)
   /* USER CODE END TIM4_MspInit 0 */
     /* TIM4 clock enable */
     __HAL_RCC_TIM4_CLK_ENABLE();
+
+    /* TIM4 interrupt Init */
+    HAL_NVIC_SetPriority(TIM4_IRQn, 0, 0);
+    HAL_NVIC_EnableIRQ(TIM4_IRQn);
   /* USER CODE BEGIN TIM4_MspInit 1 */
 
   /* USER CODE END TIM4_MspInit 1 */
@@ -208,6 +248,9 @@ void HAL_TIM_Base_MspDeInit(TIM_HandleTypeDef* tim_baseHandle)
   /* USER CODE END TIM4_MspDeInit 0 */
     /* Peripheral clock disable */
     __HAL_RCC_TIM4_CLK_DISABLE();
+
+    /* TIM4 interrupt Deinit */
+    HAL_NVIC_DisableIRQ(TIM4_IRQn);
   /* USER CODE BEGIN TIM4_MspDeInit 1 */
 
   /* USER CODE END TIM4_MspDeInit 1 */

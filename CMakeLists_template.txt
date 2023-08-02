@@ -48,8 +48,8 @@ else ()
     add_compile_options(-Og -g)
 endif ()
 
-set(USER_INC pid servo printf control)
-set(USER_SRC "pid/*.*" "servo/*.*" "printf/*.*" "control/*.*")
+set(USER_INC pid printf control)
+set(USER_SRC "pid/*.*" "printf/*.*" "control/*.*")
 
 include_directories(${includes} ${USER_INC})
 

@@ -27,7 +27,6 @@ set(CMAKE_ASM_TARGET_INCLUDE_PATH
   "E:/LMTX/Electric_racing/v1/Drivers/CMSIS/Device/ST/STM32F1xx/Include"
   "E:/LMTX/Electric_racing/v1/Drivers/CMSIS/Include"
   "E:/LMTX/Electric_racing/v1/pid"
-  "E:/LMTX/Electric_racing/v1/servo"
   "E:/LMTX/Electric_racing/v1/printf"
   "E:/LMTX/Electric_racing/v1/control"
   )
@@ -59,7 +58,6 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "E:/LMTX/Electric_racing/v1/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c" "CMakeFiles/v1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.obj" "gcc" "CMakeFiles/v1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.obj.d"
   "E:/LMTX/Electric_racing/v1/control/control.c" "CMakeFiles/v1.elf.dir/control/control.c.obj" "gcc" "CMakeFiles/v1.elf.dir/control/control.c.obj.d"
   "E:/LMTX/Electric_racing/v1/pid/PID.c" "CMakeFiles/v1.elf.dir/pid/PID.c.obj" "gcc" "CMakeFiles/v1.elf.dir/pid/PID.c.obj.d"
-  "E:/LMTX/Electric_racing/v1/servo/servo.c" "CMakeFiles/v1.elf.dir/servo/servo.c.obj" "gcc" "CMakeFiles/v1.elf.dir/servo/servo.c.obj.d"
   )
 
 # Targets to which this target links.

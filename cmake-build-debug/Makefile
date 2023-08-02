@@ -736,30 +736,6 @@ pid/PID.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\v1.elf.dir\build.make CMakeFiles/v1.elf.dir/pid/PID.c.s
 .PHONY : pid/PID.c.s
 
-servo/servo.obj: servo/servo.c.obj
-.PHONY : servo/servo.obj
-
-# target to build an object file
-servo/servo.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\v1.elf.dir\build.make CMakeFiles/v1.elf.dir/servo/servo.c.obj
-.PHONY : servo/servo.c.obj
-
-servo/servo.i: servo/servo.c.i
-.PHONY : servo/servo.i
-
-# target to preprocess a source file
-servo/servo.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\v1.elf.dir\build.make CMakeFiles/v1.elf.dir/servo/servo.c.i
-.PHONY : servo/servo.c.i
-
-servo/servo.s: servo/servo.c.s
-.PHONY : servo/servo.s
-
-# target to generate assembly for a file
-servo/servo.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\v1.elf.dir\build.make CMakeFiles/v1.elf.dir/servo/servo.c.s
-.PHONY : servo/servo.c.s
-
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -845,9 +821,6 @@ help:
 	@echo ... pid/PID.obj
 	@echo ... pid/PID.i
 	@echo ... pid/PID.s
-	@echo ... servo/servo.obj
-	@echo ... servo/servo.i
-	@echo ... servo/servo.s
 .PHONY : help
 
 

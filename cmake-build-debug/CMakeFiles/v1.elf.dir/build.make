@@ -431,20 +431,6 @@ CMakeFiles/v1.elf.dir/pid/PID.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/v1.elf.dir/pid/PID.c.s"
 	D:\clion\tools\gcc-arm-none-eabi-10.3-2021.10-win32\gcc-arm-none-eabi-10.3-2021.10\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S E:\LMTX\Electric_racing\v1\pid\PID.c -o CMakeFiles\v1.elf.dir\pid\PID.c.s
 
-CMakeFiles/v1.elf.dir/servo/servo.c.obj: CMakeFiles/v1.elf.dir/flags.make
-CMakeFiles/v1.elf.dir/servo/servo.c.obj: E:/LMTX/Electric_racing/v1/servo/servo.c
-CMakeFiles/v1.elf.dir/servo/servo.c.obj: CMakeFiles/v1.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\LMTX\Electric_racing\v1\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building C object CMakeFiles/v1.elf.dir/servo/servo.c.obj"
-	D:\clion\tools\gcc-arm-none-eabi-10.3-2021.10-win32\gcc-arm-none-eabi-10.3-2021.10\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/v1.elf.dir/servo/servo.c.obj -MF CMakeFiles\v1.elf.dir\servo\servo.c.obj.d -o CMakeFiles\v1.elf.dir\servo\servo.c.obj -c E:\LMTX\Electric_racing\v1\servo\servo.c
-
-CMakeFiles/v1.elf.dir/servo/servo.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/v1.elf.dir/servo/servo.c.i"
-	D:\clion\tools\gcc-arm-none-eabi-10.3-2021.10-win32\gcc-arm-none-eabi-10.3-2021.10\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E E:\LMTX\Electric_racing\v1\servo\servo.c > CMakeFiles\v1.elf.dir\servo\servo.c.i
-
-CMakeFiles/v1.elf.dir/servo/servo.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/v1.elf.dir/servo/servo.c.s"
-	D:\clion\tools\gcc-arm-none-eabi-10.3-2021.10-win32\gcc-arm-none-eabi-10.3-2021.10\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S E:\LMTX\Electric_racing\v1\servo\servo.c -o CMakeFiles\v1.elf.dir\servo\servo.c.s
-
 # Object files for target v1.elf
 v1_elf_OBJECTS = \
 "CMakeFiles/v1.elf.dir/Core/Src/gpio.c.obj" \
@@ -472,8 +458,7 @@ v1_elf_OBJECTS = \
 "CMakeFiles/v1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.obj" \
 "CMakeFiles/v1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.obj" \
 "CMakeFiles/v1.elf.dir/control/control.c.obj" \
-"CMakeFiles/v1.elf.dir/pid/PID.c.obj" \
-"CMakeFiles/v1.elf.dir/servo/servo.c.obj"
+"CMakeFiles/v1.elf.dir/pid/PID.c.obj"
 
 # External object files for target v1.elf
 v1_elf_EXTERNAL_OBJECTS =
@@ -504,10 +489,9 @@ v1.elf: CMakeFiles/v1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim
 v1.elf: CMakeFiles/v1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.obj
 v1.elf: CMakeFiles/v1.elf.dir/control/control.c.obj
 v1.elf: CMakeFiles/v1.elf.dir/pid/PID.c.obj
-v1.elf: CMakeFiles/v1.elf.dir/servo/servo.c.obj
 v1.elf: CMakeFiles/v1.elf.dir/build.make
 v1.elf: CMakeFiles/v1.elf.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=E:\LMTX\Electric_racing\v1\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Linking C executable v1.elf"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=E:\LMTX\Electric_racing\v1\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Linking C executable v1.elf"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\v1.elf.dir\link.txt --verbose=$(VERBOSE)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Building E:/LMTX/Electric_racing/v1/cmake-build-debug/v1.hex"
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Building E:/LMTX/Electric_racing/v1/cmake-build-debug/v1.bin"
