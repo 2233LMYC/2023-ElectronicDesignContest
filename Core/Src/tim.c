@@ -41,14 +41,8 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
     {
       tim_cnt++;
 
-
-
-      NPospid_Servo_X.actual = X_data;
-
-      NPospid_Servo_X.out = Position_PID(&NPospid_Servo_X);
-
-      Coor_To_Angles_PIDx(X_data, 43);
-      Coor_To_Angles_PIDy(Y_data, 432);
+      Coor_To_Angles_PIDx(X_data, Coordinate_To_Anglex.target);//通过像素位置，计算角度
+      Coor_To_Angles_PIDy(Y_data, Coordinate_To_Angley.target);
 
       if(tim_cnt >= 10)
       {

@@ -10,9 +10,6 @@ double du_pix = (14.0/160.0);
 
 float Init_CompareX;
 
-extern PID_struct WPospid_Servo_x;
-extern PID_struct NPospid_Servo_X;
-
 
 extern float X_data,Y_data;
 
@@ -39,15 +36,6 @@ void Servo_Init(void)
   Set_Servo_angle(x_servo,x_default);
   Set_Servo_angle(y_servo,x_default);
 
-  WPospid_Servo_x.target = 0;
-  WPospid_Servo_x.Kp = 0;
-  WPospid_Servo_x.Ki = 0;
-  WPospid_Servo_x.Kd = 0;
-
-  NPospid_Servo_X.target = 0;
-  NPospid_Servo_X.Kp = 0;
-  NPospid_Servo_X.Ki = 0;
-  NPospid_Servo_X.Kd = 0;
 }
 
 /*X轴舵机初始化微调
@@ -70,15 +58,6 @@ void Servo_Y_Angle_Set(float Angle)
 }
 
 
-void PID_TEST(float x)
-{
-  NPospid_Servo_X.target = x;
-  NPospid_Servo_X.Kp = 1;
-  NPospid_Servo_X.Ki = 0;
-  NPospid_Servo_X.Kd = 0;
-}
-
-
 void Func_1(void)//回中
 {
   Servo_X_Angle_Set(0);
@@ -87,12 +66,105 @@ void Func_1(void)//回中
 
 void Func_2(void)//顺时针绕外框
 {
-  static float x,y;
+  static int step  = 0;
 
-  x = 14,y = -15;
+  switch(step)
+  {
+    case 0://从任意点到左上角
+    {
+      Coordinate_To_Anglex.target = 425;
+      Coordinate_To_Angley.target = 45;
+      if((Coordinate_To_Anglex.target >= 425) && (Coordinate_To_Angley.target <= 45))
+        step = 1;
+    }
+    case 1: {
+      if(Coordinate_To_Anglex.target > 40)
+      {
+        Coordinate_To_Anglex.target -= 0.5;
+      }
+      else
+      {
+        Coordinate_To_Anglex.target = 40;
+      }
+      if(Coordinate_To_Angley.target < 60)
+      {
+        Coordinate_To_Angley.target += 0.5;
+      }
+      else
+      {
+        Coordinate_To_Angley.target = 60;
+      }
+      if((Coordinate_To_Anglex.target <= 40) && (Coordinate_To_Angley.target >= 60))
+        step = 2;
+      else step = 1;
+    }break;
+    case 2:{
+      if(Coordinate_To_Anglex.target < 50)
+      {
+        Coordinate_To_Anglex.target += 0.5;
+      }
+      else
+      {
+        Coordinate_To_Anglex.target = 50;
+      }
+      if(Coordinate_To_Angley.target < 430)
+      {
+        Coordinate_To_Angley.target += 0.5;
+      }
+      else
+      {
+        Coordinate_To_Angley.target = 430;
+      }
+      if((Coordinate_To_Anglex.target >= 50) && (Coordinate_To_Angley.target >= 430))
+        step = 3;
+      else step = 2;
+    }break;
+    case 3:
+    {
+      if(Coordinate_To_Anglex.target < 420)
+      {
+        Coordinate_To_Anglex.target += 0.5;
+      }
+      else
+      {
+        Coordinate_To_Anglex.target = 420;
+      }
+      if(Coordinate_To_Angley.target < 430)
+      {
+        Coordinate_To_Angley.target += 0.5;
+      }
+      else
+      {
+        Coordinate_To_Angley.target = 430;
+      }
+      if((Coordinate_To_Anglex.target >= 420) && (Coordinate_To_Angley.target >= 430))
+        step = 4;
+      else step = 3;
+    }break;
+    case 4:
+    {
+      if(Coordinate_To_Anglex.target < 425)
+      {
+        Coordinate_To_Anglex.target += 0.5;
+      }
+      else
+      {
+        Coordinate_To_Anglex.target = 425;
+      }
+      if(Coordinate_To_Angley.target > 45)
+      {
+        Coordinate_To_Angley.target -= 0.5;
+      }
+      else
+      {
+        Coordinate_To_Angley.target = 45;
+      }
+      if((Coordinate_To_Anglex.target >= 425) && (Coordinate_To_Angley.target <= 45))
+        step = 5;
+    }break;
+  }
 
-  Servo_X_Angle_Set(x);
-  Servo_Y_Angle_Set(y);
+
 
 
 }
