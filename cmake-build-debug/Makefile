@@ -712,6 +712,30 @@ control/control.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\v1.elf.dir\build.make CMakeFiles/v1.elf.dir/control/control.c.s
 .PHONY : control/control.c.s
 
+oled_sim/oled.obj: oled_sim/oled.c.obj
+.PHONY : oled_sim/oled.obj
+
+# target to build an object file
+oled_sim/oled.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\v1.elf.dir\build.make CMakeFiles/v1.elf.dir/oled_sim/oled.c.obj
+.PHONY : oled_sim/oled.c.obj
+
+oled_sim/oled.i: oled_sim/oled.c.i
+.PHONY : oled_sim/oled.i
+
+# target to preprocess a source file
+oled_sim/oled.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\v1.elf.dir\build.make CMakeFiles/v1.elf.dir/oled_sim/oled.c.i
+.PHONY : oled_sim/oled.c.i
+
+oled_sim/oled.s: oled_sim/oled.c.s
+.PHONY : oled_sim/oled.s
+
+# target to generate assembly for a file
+oled_sim/oled.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\v1.elf.dir\build.make CMakeFiles/v1.elf.dir/oled_sim/oled.c.s
+.PHONY : oled_sim/oled.c.s
+
 pid/PID.obj: pid/PID.c.obj
 .PHONY : pid/PID.obj
 
@@ -818,6 +842,9 @@ help:
 	@echo ... control/control.obj
 	@echo ... control/control.i
 	@echo ... control/control.s
+	@echo ... oled_sim/oled.obj
+	@echo ... oled_sim/oled.i
+	@echo ... oled_sim/oled.s
 	@echo ... pid/PID.obj
 	@echo ... pid/PID.i
 	@echo ... pid/PID.s

@@ -35,6 +35,7 @@
 					<Add directory="E:/LMTX/Electric_racing/v1/pid"/>
 					<Add directory="E:/LMTX/Electric_racing/v1/printf"/>
 					<Add directory="E:/LMTX/Electric_racing/v1/control"/>
+					<Add directory="E:/LMTX/Electric_racing/v1/oled_sim"/>
 					<Add directory="d:\clion\tools\gcc-arm-none-eabi-10.3-2021.10-win32\gcc-arm-none-eabi-10.3-2021.10\bin\../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/include/c++/10.3.1"/>
 					<Add directory="d:\clion\tools\gcc-arm-none-eabi-10.3-2021.10-win32\gcc-arm-none-eabi-10.3-2021.10\bin\../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/include/c++/10.3.1/arm-none-eabi"/>
 					<Add directory="d:\clion\tools\gcc-arm-none-eabi-10.3-2021.10-win32\gcc-arm-none-eabi-10.3-2021.10\bin\../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/include/c++/10.3.1/backward"/>
@@ -67,6 +68,7 @@
 					<Add directory="E:/LMTX/Electric_racing/v1/pid"/>
 					<Add directory="E:/LMTX/Electric_racing/v1/printf"/>
 					<Add directory="E:/LMTX/Electric_racing/v1/control"/>
+					<Add directory="E:/LMTX/Electric_racing/v1/oled_sim"/>
 					<Add directory="d:\clion\tools\gcc-arm-none-eabi-10.3-2021.10-win32\gcc-arm-none-eabi-10.3-2021.10\bin\../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/include/c++/10.3.1"/>
 					<Add directory="d:\clion\tools\gcc-arm-none-eabi-10.3-2021.10-win32\gcc-arm-none-eabi-10.3-2021.10\bin\../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/include/c++/10.3.1/arm-none-eabi"/>
 					<Add directory="d:\clion\tools\gcc-arm-none-eabi-10.3-2021.10-win32\gcc-arm-none-eabi-10.3-2021.10\bin\../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/include/c++/10.3.1/backward"/>
@@ -364,6 +366,18 @@
 			<Option target="v1.elf"/>
 		</Unit>
 		<Unit filename="E:/LMTX/Electric_racing/v1/control/control.h">
+			<Option target="v1.elf"/>
+		</Unit>
+		<Unit filename="E:/LMTX/Electric_racing/v1/oled_sim/bmp.h">
+			<Option target="v1.elf"/>
+		</Unit>
+		<Unit filename="E:/LMTX/Electric_racing/v1/oled_sim/oled.c">
+			<Option target="v1.elf"/>
+		</Unit>
+		<Unit filename="E:/LMTX/Electric_racing/v1/oled_sim/oled.h">
+			<Option target="v1.elf"/>
+		</Unit>
+		<Unit filename="E:/LMTX/Electric_racing/v1/oled_sim/oledfont.h">
 			<Option target="v1.elf"/>
 		</Unit>
 		<Unit filename="E:/LMTX/Electric_racing/v1/pid/PID.c">

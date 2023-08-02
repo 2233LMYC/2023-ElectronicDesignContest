@@ -48,8 +48,8 @@ else ()
     add_compile_options(-Og -g)
 endif ()
 
-set(USER_INC pid printf control)
-set(USER_SRC "pid/*.*" "printf/*.*" "control/*.*")
+set(USER_INC pid printf control  oled_sim)
+set(USER_SRC "pid/*.*" "printf/*.*" "control/*.*" "oled_sim/*.*")
 
 include_directories(${includes} ${USER_INC})
 

@@ -29,6 +29,7 @@ set(CMAKE_ASM_TARGET_INCLUDE_PATH
   "E:/LMTX/Electric_racing/v1/pid"
   "E:/LMTX/Electric_racing/v1/printf"
   "E:/LMTX/Electric_racing/v1/control"
+  "E:/LMTX/Electric_racing/v1/oled_sim"
   )
 
 # The set of dependency files which are needed:
@@ -57,6 +58,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "E:/LMTX/Electric_racing/v1/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c" "CMakeFiles/v1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.obj" "gcc" "CMakeFiles/v1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.obj.d"
   "E:/LMTX/Electric_racing/v1/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c" "CMakeFiles/v1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.obj" "gcc" "CMakeFiles/v1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.obj.d"
   "E:/LMTX/Electric_racing/v1/control/control.c" "CMakeFiles/v1.elf.dir/control/control.c.obj" "gcc" "CMakeFiles/v1.elf.dir/control/control.c.obj.d"
+  "E:/LMTX/Electric_racing/v1/oled_sim/oled.c" "CMakeFiles/v1.elf.dir/oled_sim/oled.c.obj" "gcc" "CMakeFiles/v1.elf.dir/oled_sim/oled.c.obj.d"
   "E:/LMTX/Electric_racing/v1/pid/PID.c" "CMakeFiles/v1.elf.dir/pid/PID.c.obj" "gcc" "CMakeFiles/v1.elf.dir/pid/PID.c.obj.d"
   )
 

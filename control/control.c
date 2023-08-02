@@ -38,4 +38,9 @@ void Servo_Init(void)
 {
   Set_Servo_angle(x_servo,1500);
   Set_Servo_angle(y_servo,1500);
+
+
+
+
+
 }

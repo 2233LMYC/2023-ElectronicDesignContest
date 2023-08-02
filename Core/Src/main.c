@@ -27,7 +27,9 @@
 
 #include "PID.h"
 #include "printf.h"
-
+//#include "bsp_oled.h"
+#include "oled.h"
+#include "stdio.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -54,6 +56,10 @@ extern float X_data,Y_data;
 extern PID_struct pid_Servo_x;
 extern PID_struct pid_Servo_y;
 extern float X_data,Y_data;
+
+uint8_t sbuf[20];
+
+
 
 /* USER CODE END PV */
 
@@ -99,8 +105,9 @@ int main(void)
   MX_TIM2_Init();
   MX_TIM4_Init();
   MX_USART1_UART_Init();
+  MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
-  HAL_UART_Receive_IT(&huart1,&rec,1);
+  HAL_UART_Receive_IT(&huart2,&rec,1);
   HAL_TIM_Base_Start_IT(&htim4);
 
   HAL_TIM_PWM_Start(&htim2,TIM_CHANNEL_1);
@@ -108,6 +115,10 @@ int main(void)
 
   __HAL_TIM_SET_COMPARE(&htim2,TIM_CHANNEL_1,1500);
   __HAL_TIM_SET_COMPARE(&htim2,TIM_CHANNEL_2,1500);
+
+//  OLED_Clear();
+  OLED_Init();
+  OLED_DisplayTurn(1);
 
   PID_Init(&pid_Servo_x);
   PID_Init(&pid_Servo_y);
@@ -122,9 +133,10 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+    sprintf((char*)sbuf,"x:%d y:%d ",(int)pid_Servo_x.actual,(int)pid_Servo_y.actual);
+    OLED_ShowString(0,2,sbuf,12);
 
-    printf("test!\r\n");
-    HAL_Delay(100);
+    HAL_Delay(10);
 
   }
   /* USER CODE END 3 */

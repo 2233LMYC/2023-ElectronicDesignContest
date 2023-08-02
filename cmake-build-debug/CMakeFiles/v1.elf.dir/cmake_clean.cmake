@@ -48,6 +48,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/v1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.obj.d"
   "CMakeFiles/v1.elf.dir/control/control.c.obj"
   "CMakeFiles/v1.elf.dir/control/control.c.obj.d"
+  "CMakeFiles/v1.elf.dir/oled_sim/oled.c.obj"
+  "CMakeFiles/v1.elf.dir/oled_sim/oled.c.obj.d"
   "CMakeFiles/v1.elf.dir/pid/PID.c.obj"
   "CMakeFiles/v1.elf.dir/pid/PID.c.obj.d"
   "v1.elf"
