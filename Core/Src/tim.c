@@ -41,6 +41,8 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
     {
       tim_cnt++;
 
+
+
       NPospid_Servo_X.actual = X_data;
 
       NPospid_Servo_X.out = Position_PID(&NPospid_Servo_X);
