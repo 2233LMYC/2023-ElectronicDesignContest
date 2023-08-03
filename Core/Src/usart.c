@@ -32,62 +32,62 @@ uint8_t rec_buff[200];
 float X_data,Y_data,None;
 int rect_data[4][2] = {0};
 
-void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
-{
-    static uint8_t cnt = 0;
-    if(huart->Instance == USART2)
-    {
-        rec_buff[cnt++] = rec;
-        if(rec == '\n')
-        {
-            rec_buff[cnt] = '\0';
-            cnt = 0;
-            if(flag.red == 1)
-            {
-              // 解析字符串，查找"x="和"y="的位置
-              const char*px = strstr((const char*)rec_buff, "X=");
-              const char*py = strstr((const char*)rec_buff, "Y=");
-              const char*pn = strstr((const char*)rec_buff,"None");
-              if(pn != NULL)  None = 1;
-              else if(px && py)
-              {
-                None = 0;
-                X_data = atoff(px + 2); // +2是为了跳过"x="
-                Y_data = atoff(py + 2); // +2是为了跳过"y="
-                memset(rec_buff, 0, 200);
-              }
-            }
-            else if(flag.rect == 1)
-            {
-              const char*px1 = strstr((const char*)rec_buff, "p1x=");
-              const char*py1 = strstr((const char*)rec_buff, "p1y=");
-              const char*px2 = strstr((const char*)rec_buff, "p2x=");
-              const char*py2 = strstr((const char*)rec_buff, "p2y=");
-              const char*px3 = strstr((const char*)rec_buff, "p3x=");
-              const char*py3 = strstr((const char*)rec_buff, "p3y=");
-              const char*px4 = strstr((const char*)rec_buff, "p4x=");
-              const char*py4 = strstr((const char*)rec_buff, "p4y=");
-
-              if(px1&&py1&&px2&&py2&&px3&&py3&&px4&&py4)
-              {
-                rect_data[0][0] = atoi(px1 + 4);
-                rect_data[0][1] = atoi(py1 + 4);
-                rect_data[1][0] = atoi(px2 + 4);
-                rect_data[1][1] = atoi(py2 + 4);
-
-                rect_data[2][0] = atoi(px3 + 4);
-                rect_data[2][1] = atoi(py3 + 4);
-                rect_data[3][0] = atoi(px4 + 4);
-                rect_data[3][1] = atoi(py4 + 4);
-
-                memset(rec_buff,0,200);
-              }
-            }
-        }
-    }
-  HAL_UART_Receive_IT(&huart2,&rec,1);
-
-}
+//void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+//{
+//    static uint8_t cnt = 0;
+//    if(huart->Instance == USART2)
+//    {
+//        rec_buff[cnt++] = rec;
+//        if(rec == '\n')
+//        {
+//            rec_buff[cnt] = '\0';
+//            cnt = 0;
+//            if(flag.red == 1)
+//            {
+//              // 解析字符串，查找"x="和"y="的位置
+//              const char*px = strstr((const char*)rec_buff, "X=");
+//              const char*py = strstr((const char*)rec_buff, "Y=");
+//              const char*pn = strstr((const char*)rec_buff,"None");
+//              if(pn != NULL)  None = 1;
+//              else if(px && py)
+//              {
+//                None = 0;
+//                X_data = atoff(px + 2); // +2是为了跳过"x="
+//                Y_data = atoff(py + 2); // +2是为了跳过"y="
+//                memset(rec_buff, 0, 200);
+//              }
+//            }
+//            else if(flag.rect == 1)
+//            {
+//              const char*px1 = strstr((const char*)rec_buff, "p1x=");
+//              const char*py1 = strstr((const char*)rec_buff, "p1y=");
+//              const char*px2 = strstr((const char*)rec_buff, "p2x=");
+//              const char*py2 = strstr((const char*)rec_buff, "p2y=");
+//              const char*px3 = strstr((const char*)rec_buff, "p3x=");
+//              const char*py3 = strstr((const char*)rec_buff, "p3y=");
+//              const char*px4 = strstr((const char*)rec_buff, "p4x=");
+//              const char*py4 = strstr((const char*)rec_buff, "p4y=");
+//
+//              if(px1&&py1&&px2&&py2&&px3&&py3&&px4&&py4)
+//              {
+//                rect_data[0][0] = atoi(px1 + 4);
+//                rect_data[0][1] = atoi(py1 + 4);
+//                rect_data[1][0] = atoi(px2 + 4);
+//                rect_data[1][1] = atoi(py2 + 4);
+//
+//                rect_data[2][0] = atoi(px3 + 4);
+//                rect_data[2][1] = atoi(py3 + 4);
+//                rect_data[3][0] = atoi(px4 + 4);
+//                rect_data[3][1] = atoi(py4 + 4);
+//
+//                memset(rec_buff,0,200);
+//              }
+//            }
+//        }
+//    }
+//  HAL_UART_Receive_IT(&huart2,&rec,1);
+//
+//}
 
 
 

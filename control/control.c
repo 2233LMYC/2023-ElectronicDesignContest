@@ -146,31 +146,51 @@ void Coor_To_Angles_PIDy(float y_actual, float y_target) {
   else if(Coordinate_To_Anglex.out < -16) Coordinate_To_Anglex.out = -16;
 }
 
-void KEY_Proc(void)
+uint8_t Key_Scan(void)
 {
-  //追红点
   if(HAL_GPIO_ReadPin(K5_GPIO_Port,K5_Pin) == 0)
   {
-    HAL_Delay(10);
-    if(HAL_GPIO_ReadPin(K5_GPIO_Port,K5_Pin) == 0)
-    {
-      OLED_Clear();
-      HAL_UART_Transmit(&huart2, (uint8_t *) "RED", strlen("RED"), 1000);
-      flag.rect = 0;
-      flag.red = 1;
-    }
+    return 5;
   }
-  //识别矩形
-  if(HAL_GPIO_ReadPin(K4_GPIO_Port,K4_Pin) == 0)
+  else if(HAL_GPIO_ReadPin(K4_GPIO_Port,K4_Pin) == 0)
   {
-    HAL_Delay(10);
-    if(HAL_GPIO_ReadPin(K4_GPIO_Port,K4_Pin) == 0)
-    {
-      OLED_Clear();
-      HAL_UART_Transmit(&huart2, (uint8_t *) "RECT", strlen("RECT"), 1000);
-      flag.red = 0;
-      flag.rect = 1;
+    return 4;
+  }
+  else
+    return 0;
+}
+
+void Key_Proc(void)
+{
+  static __IO uint32_t uwTick_Key_Speed;
+  uint8_t key_value,key_up,key_down;
+
+  static uint8_t key_old;
+  if(uwTick - uwTick_Key_Speed < 50) return;	//减速函数
+  uwTick_Key_Speed = uwTick;	//每50ms执行一次
+
+
+  key_value = Key_Scan();
+  key_up = ~key_value & (key_old ^ key_value);
+
+  key_down = key_value & (key_old ^ key_value);
+  key_old = key_value;
+
+  if(key_down)
+  {
+    switch (key_down) {
+      case 5:
+        OLED_Clear();
+        HAL_UART_Transmit(&huart2, (uint8_t *) "RED", strlen("RED"), 1000);
+        flag.rect = 0;
+        flag.red = 1;
+        break;
+      case 4:
+        OLED_Clear();
+        HAL_UART_Transmit(&huart2, (uint8_t *) "RECT", strlen("RECT"), 1000);
+        flag.red = 0;
+        flag.rect = 1;
+        break;
     }
   }
-
 }

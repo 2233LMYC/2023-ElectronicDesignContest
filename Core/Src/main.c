@@ -120,8 +120,8 @@ int main(void)
   OLED_Init();
   OLED_DisplayTurn(1);
 
-  __HAL_UART_ENABLE_IT(&huart1, UART_IT_IDLE); //使能IDLE中断
-  HAL_UART_Receive_DMA(&huart1,uart2_rx_buffer,BUFFER_SIZE);
+  __HAL_UART_ENABLE_IT(&huart2, UART_IT_IDLE); //使能IDLE中断
+  HAL_UART_Receive_DMA(&huart2,uart2_rx_buffer,BUFFER_SIZE);
 
 
   PID_Param_Init(&Coordinate_To_Anglex, 0.05, 0.00315, -0.00);//定点走线
@@ -140,8 +140,9 @@ int main(void)
 
     /* USER CODE BEGIN 3 */
 
+    USART_data_processing();
     Func_3();
-    KEY_Proc();
+    Key_Proc();
 
     memset(sbuf,0,20);
     sprintf((char*)sbuf,"x:%d y:%d",(int)X_data,(int)Y_data);
