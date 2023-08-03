@@ -128,6 +128,30 @@ v1.elf/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\v1.elf.dir\build.make CMakeFiles/v1.elf.dir/build
 .PHONY : v1.elf/fast
 
+Core/Src/dma.obj: Core/Src/dma.c.obj
+.PHONY : Core/Src/dma.obj
+
+# target to build an object file
+Core/Src/dma.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\v1.elf.dir\build.make CMakeFiles/v1.elf.dir/Core/Src/dma.c.obj
+.PHONY : Core/Src/dma.c.obj
+
+Core/Src/dma.i: Core/Src/dma.c.i
+.PHONY : Core/Src/dma.i
+
+# target to preprocess a source file
+Core/Src/dma.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\v1.elf.dir\build.make CMakeFiles/v1.elf.dir/Core/Src/dma.c.i
+.PHONY : Core/Src/dma.c.i
+
+Core/Src/dma.s: Core/Src/dma.c.s
+.PHONY : Core/Src/dma.s
+
+# target to generate assembly for a file
+Core/Src/dma.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\v1.elf.dir\build.make CMakeFiles/v1.elf.dir/Core/Src/dma.c.s
+.PHONY : Core/Src/dma.c.s
+
 Core/Src/gpio.obj: Core/Src/gpio.c.obj
 .PHONY : Core/Src/gpio.obj
 
@@ -760,6 +784,30 @@ pid/PID.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\v1.elf.dir\build.make CMakeFiles/v1.elf.dir/pid/PID.c.s
 .PHONY : pid/PID.c.s
 
+uart/USART_2.obj: uart/USART_2.c.obj
+.PHONY : uart/USART_2.obj
+
+# target to build an object file
+uart/USART_2.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\v1.elf.dir\build.make CMakeFiles/v1.elf.dir/uart/USART_2.c.obj
+.PHONY : uart/USART_2.c.obj
+
+uart/USART_2.i: uart/USART_2.c.i
+.PHONY : uart/USART_2.i
+
+# target to preprocess a source file
+uart/USART_2.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\v1.elf.dir\build.make CMakeFiles/v1.elf.dir/uart/USART_2.c.i
+.PHONY : uart/USART_2.c.i
+
+uart/USART_2.s: uart/USART_2.c.s
+.PHONY : uart/USART_2.s
+
+# target to generate assembly for a file
+uart/USART_2.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\v1.elf.dir\build.make CMakeFiles/v1.elf.dir/uart/USART_2.c.s
+.PHONY : uart/USART_2.c.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -769,6 +817,9 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... v1.elf
+	@echo ... Core/Src/dma.obj
+	@echo ... Core/Src/dma.i
+	@echo ... Core/Src/dma.s
 	@echo ... Core/Src/gpio.obj
 	@echo ... Core/Src/gpio.i
 	@echo ... Core/Src/gpio.s
@@ -848,6 +899,9 @@ help:
 	@echo ... pid/PID.obj
 	@echo ... pid/PID.i
 	@echo ... pid/PID.s
+	@echo ... uart/USART_2.obj
+	@echo ... uart/USART_2.i
+	@echo ... uart/USART_2.s
 .PHONY : help
 
 

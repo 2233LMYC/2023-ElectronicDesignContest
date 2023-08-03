@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/v1.elf.dir/Core/Src/dma.c.obj"
+  "CMakeFiles/v1.elf.dir/Core/Src/dma.c.obj.d"
   "CMakeFiles/v1.elf.dir/Core/Src/gpio.c.obj"
   "CMakeFiles/v1.elf.dir/Core/Src/gpio.c.obj.d"
   "CMakeFiles/v1.elf.dir/Core/Src/main.c.obj"
@@ -52,6 +54,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/v1.elf.dir/oled_sim/oled.c.obj.d"
   "CMakeFiles/v1.elf.dir/pid/PID.c.obj"
   "CMakeFiles/v1.elf.dir/pid/PID.c.obj.d"
+  "CMakeFiles/v1.elf.dir/uart/USART_2.c.obj"
+  "CMakeFiles/v1.elf.dir/uart/USART_2.c.obj.d"
   "v1.elf"
   "v1.elf.manifest"
   "v1.elf.pdb"

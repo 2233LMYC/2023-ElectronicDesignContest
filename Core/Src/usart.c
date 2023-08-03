@@ -24,12 +24,13 @@
 
 #include "string.h"
 #include "stdlib.h"
+#include "control.h"
 
-
+extern abc flag;
 uint8_t rec;
-uint8_t rec_buff[20];
+uint8_t rec_buff[200];
 float X_data,Y_data,None;
-
+int rect_data[4][2] = {0};
 
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 {
@@ -41,21 +42,51 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
         {
             rec_buff[cnt] = '\0';
             cnt = 0;
-            // 解析字符串，查找"x="和"y="的位置
-            const char*px = strstr((const char*)rec_buff, "X=");
-            const char*py = strstr((const char*)rec_buff, "Y=");
-            const char*pn = strstr((const char*)rec_buff,"None");
-            if(pn != NULL)  None = 1;
-            else if(px && py)
+            if(flag.red == 1)
             {
+              // 解析字符串，查找"x="和"y="的位置
+              const char*px = strstr((const char*)rec_buff, "X=");
+              const char*py = strstr((const char*)rec_buff, "Y=");
+              const char*pn = strstr((const char*)rec_buff,"None");
+              if(pn != NULL)  None = 1;
+              else if(px && py)
+              {
                 None = 0;
                 X_data = atoff(px + 2); // +2是为了跳过"x="
                 Y_data = atoff(py + 2); // +2是为了跳过"y="
-                memset(rec_buff,0,20);
+                memset(rec_buff, 0, 200);
+              }
+            }
+            else if(flag.rect == 1)
+            {
+              const char*px1 = strstr((const char*)rec_buff, "p1x=");
+              const char*py1 = strstr((const char*)rec_buff, "p1y=");
+              const char*px2 = strstr((const char*)rec_buff, "p2x=");
+              const char*py2 = strstr((const char*)rec_buff, "p2y=");
+              const char*px3 = strstr((const char*)rec_buff, "p3x=");
+              const char*py3 = strstr((const char*)rec_buff, "p3y=");
+              const char*px4 = strstr((const char*)rec_buff, "p4x=");
+              const char*py4 = strstr((const char*)rec_buff, "p4y=");
+
+              if(px1&&py1&&px2&&py2&&px3&&py3&&px4&&py4)
+              {
+                rect_data[0][0] = atoi(px1 + 4);
+                rect_data[0][1] = atoi(py1 + 4);
+                rect_data[1][0] = atoi(px2 + 4);
+                rect_data[1][1] = atoi(py2 + 4);
+
+                rect_data[2][0] = atoi(px3 + 4);
+                rect_data[2][1] = atoi(py3 + 4);
+                rect_data[3][0] = atoi(px4 + 4);
+                rect_data[3][1] = atoi(py4 + 4);
+
+                memset(rec_buff,0,200);
+              }
             }
         }
     }
   HAL_UART_Receive_IT(&huart2,&rec,1);
+
 }
 
 
@@ -65,6 +96,8 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 
 UART_HandleTypeDef huart1;
 UART_HandleTypeDef huart2;
+DMA_HandleTypeDef hdma_usart2_rx;
+DMA_HandleTypeDef hdma_usart2_tx;
 
 /* USART1 init function */
 
@@ -184,6 +217,39 @@ void HAL_UART_MspInit(UART_HandleTypeDef* uartHandle)
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
+    /* USART2 DMA Init */
+    /* USART2_RX Init */
+    hdma_usart2_rx.Instance = DMA1_Channel6;
+    hdma_usart2_rx.Init.Direction = DMA_PERIPH_TO_MEMORY;
+    hdma_usart2_rx.Init.PeriphInc = DMA_PINC_DISABLE;
+    hdma_usart2_rx.Init.MemInc = DMA_MINC_ENABLE;
+    hdma_usart2_rx.Init.PeriphDataAlignment = DMA_PDATAALIGN_BYTE;
+    hdma_usart2_rx.Init.MemDataAlignment = DMA_MDATAALIGN_BYTE;
+    hdma_usart2_rx.Init.Mode = DMA_NORMAL;
+    hdma_usart2_rx.Init.Priority = DMA_PRIORITY_LOW;
+    if (HAL_DMA_Init(&hdma_usart2_rx) != HAL_OK)
+    {
+      Error_Handler();
+    }
+
+    __HAL_LINKDMA(uartHandle,hdmarx,hdma_usart2_rx);
+
+    /* USART2_TX Init */
+    hdma_usart2_tx.Instance = DMA1_Channel7;
+    hdma_usart2_tx.Init.Direction = DMA_MEMORY_TO_PERIPH;
+    hdma_usart2_tx.Init.PeriphInc = DMA_PINC_DISABLE;
+    hdma_usart2_tx.Init.MemInc = DMA_MINC_ENABLE;
+    hdma_usart2_tx.Init.PeriphDataAlignment = DMA_PDATAALIGN_BYTE;
+    hdma_usart2_tx.Init.MemDataAlignment = DMA_MDATAALIGN_BYTE;
+    hdma_usart2_tx.Init.Mode = DMA_NORMAL;
+    hdma_usart2_tx.Init.Priority = DMA_PRIORITY_LOW;
+    if (HAL_DMA_Init(&hdma_usart2_tx) != HAL_OK)
+    {
+      Error_Handler();
+    }
+
+    __HAL_LINKDMA(uartHandle,hdmatx,hdma_usart2_tx);
+
     /* USART2 interrupt Init */
     HAL_NVIC_SetPriority(USART2_IRQn, 0, 0);
     HAL_NVIC_EnableIRQ(USART2_IRQn);
@@ -229,6 +295,10 @@ void HAL_UART_MspDeInit(UART_HandleTypeDef* uartHandle)
     PA3     ------> USART2_RX
     */
     HAL_GPIO_DeInit(GPIOA, GPIO_PIN_2|GPIO_PIN_3);
+
+    /* USART2 DMA DeInit */
+    HAL_DMA_DeInit(uartHandle->hdmarx);
+    HAL_DMA_DeInit(uartHandle->hdmatx);
 
     /* USART2 interrupt Deinit */
     HAL_NVIC_DisableIRQ(USART2_IRQn);

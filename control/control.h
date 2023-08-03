@@ -27,13 +27,21 @@ enum {
 
 };
 
+typedef struct
+{
+    char rect;
+    char red;
+}abc;
+
 void Servo_Init(void);
 void Servo_X_Angle_Set(float Angle);
 void Servo_Y_Angle_Set(float Angle);
 
 void Func_1(void);//回中
 void Func_2(void);//顺时针绕外框
+void Func_3(void);//矩形
 
+void KEY_Proc(void);
 void Coor_To_Angles_PIDx(float x_actual, float x_target);
 void Coor_To_Angles_PIDy(float y_actual, float y_target);
 

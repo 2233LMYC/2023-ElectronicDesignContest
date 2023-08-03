@@ -36,6 +36,7 @@
 					<Add directory="E:/LMTX/Electric_racing/v1/printf"/>
 					<Add directory="E:/LMTX/Electric_racing/v1/control"/>
 					<Add directory="E:/LMTX/Electric_racing/v1/oled_sim"/>
+					<Add directory="E:/LMTX/Electric_racing/v1/uart"/>
 					<Add directory="d:\clion\tools\gcc-arm-none-eabi-10.3-2021.10-win32\gcc-arm-none-eabi-10.3-2021.10\bin\../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/include/c++/10.3.1"/>
 					<Add directory="d:\clion\tools\gcc-arm-none-eabi-10.3-2021.10-win32\gcc-arm-none-eabi-10.3-2021.10\bin\../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/include/c++/10.3.1/arm-none-eabi"/>
 					<Add directory="d:\clion\tools\gcc-arm-none-eabi-10.3-2021.10-win32\gcc-arm-none-eabi-10.3-2021.10\bin\../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/include/c++/10.3.1/backward"/>
@@ -69,6 +70,7 @@
 					<Add directory="E:/LMTX/Electric_racing/v1/printf"/>
 					<Add directory="E:/LMTX/Electric_racing/v1/control"/>
 					<Add directory="E:/LMTX/Electric_racing/v1/oled_sim"/>
+					<Add directory="E:/LMTX/Electric_racing/v1/uart"/>
 					<Add directory="d:\clion\tools\gcc-arm-none-eabi-10.3-2021.10-win32\gcc-arm-none-eabi-10.3-2021.10\bin\../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/include/c++/10.3.1"/>
 					<Add directory="d:\clion\tools\gcc-arm-none-eabi-10.3-2021.10-win32\gcc-arm-none-eabi-10.3-2021.10\bin\../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/include/c++/10.3.1/arm-none-eabi"/>
 					<Add directory="d:\clion\tools\gcc-arm-none-eabi-10.3-2021.10-win32\gcc-arm-none-eabi-10.3-2021.10\bin\../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/include/c++/10.3.1/backward"/>
@@ -104,6 +106,9 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="E:/LMTX/Electric_racing/v1/Core/Inc/dma.h">
+			<Option target="v1.elf"/>
+		</Unit>
 		<Unit filename="E:/LMTX/Electric_racing/v1/Core/Inc/gpio.h">
 			<Option target="v1.elf"/>
 		</Unit>
@@ -120,6 +125,9 @@
 			<Option target="v1.elf"/>
 		</Unit>
 		<Unit filename="E:/LMTX/Electric_racing/v1/Core/Inc/usart.h">
+			<Option target="v1.elf"/>
+		</Unit>
+		<Unit filename="E:/LMTX/Electric_racing/v1/Core/Src/dma.c">
 			<Option target="v1.elf"/>
 		</Unit>
 		<Unit filename="E:/LMTX/Electric_racing/v1/Core/Src/gpio.c">
@@ -387,6 +395,12 @@
 			<Option target="v1.elf"/>
 		</Unit>
 		<Unit filename="E:/LMTX/Electric_racing/v1/printf/printf.h">
+			<Option target="v1.elf"/>
+		</Unit>
+		<Unit filename="E:/LMTX/Electric_racing/v1/uart/USART_2.c">
+			<Option target="v1.elf"/>
+		</Unit>
+		<Unit filename="E:/LMTX/Electric_racing/v1/uart/USART_2.h">
 			<Option target="v1.elf"/>
 		</Unit>
 		<Unit filename="E:/LMTX/Electric_racing/v1/CMakeLists.txt">

@@ -30,10 +30,12 @@ set(CMAKE_ASM_TARGET_INCLUDE_PATH
   "E:/LMTX/Electric_racing/v1/printf"
   "E:/LMTX/Electric_racing/v1/control"
   "E:/LMTX/Electric_racing/v1/oled_sim"
+  "E:/LMTX/Electric_racing/v1/uart"
   )
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "E:/LMTX/Electric_racing/v1/Core/Src/dma.c" "CMakeFiles/v1.elf.dir/Core/Src/dma.c.obj" "gcc" "CMakeFiles/v1.elf.dir/Core/Src/dma.c.obj.d"
   "E:/LMTX/Electric_racing/v1/Core/Src/gpio.c" "CMakeFiles/v1.elf.dir/Core/Src/gpio.c.obj" "gcc" "CMakeFiles/v1.elf.dir/Core/Src/gpio.c.obj.d"
   "E:/LMTX/Electric_racing/v1/Core/Src/main.c" "CMakeFiles/v1.elf.dir/Core/Src/main.c.obj" "gcc" "CMakeFiles/v1.elf.dir/Core/Src/main.c.obj.d"
   "E:/LMTX/Electric_racing/v1/Core/Src/stm32f1xx_hal_msp.c" "CMakeFiles/v1.elf.dir/Core/Src/stm32f1xx_hal_msp.c.obj" "gcc" "CMakeFiles/v1.elf.dir/Core/Src/stm32f1xx_hal_msp.c.obj.d"
@@ -60,6 +62,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "E:/LMTX/Electric_racing/v1/control/control.c" "CMakeFiles/v1.elf.dir/control/control.c.obj" "gcc" "CMakeFiles/v1.elf.dir/control/control.c.obj.d"
   "E:/LMTX/Electric_racing/v1/oled_sim/oled.c" "CMakeFiles/v1.elf.dir/oled_sim/oled.c.obj" "gcc" "CMakeFiles/v1.elf.dir/oled_sim/oled.c.obj.d"
   "E:/LMTX/Electric_racing/v1/pid/PID.c" "CMakeFiles/v1.elf.dir/pid/PID.c.obj" "gcc" "CMakeFiles/v1.elf.dir/pid/PID.c.obj.d"
+  "E:/LMTX/Electric_racing/v1/uart/USART_2.c" "CMakeFiles/v1.elf.dir/uart/USART_2.c.obj" "gcc" "CMakeFiles/v1.elf.dir/uart/USART_2.c.obj.d"
   )
 
 # Targets to which this target links.

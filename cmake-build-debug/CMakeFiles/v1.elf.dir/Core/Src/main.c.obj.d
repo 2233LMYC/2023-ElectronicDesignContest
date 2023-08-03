@@ -34,8 +34,9 @@ CMakeFiles/v1.elf.dir/Core/Src/main.c.obj: \
  E:\LMTX\Electric_racing\v1\Drivers\STM32F1xx_HAL_Driver\Inc/stm32f1xx_hal_tim.h \
  E:\LMTX\Electric_racing\v1\Drivers\STM32F1xx_HAL_Driver\Inc/stm32f1xx_hal_tim_ex.h \
  E:\LMTX\Electric_racing\v1\Drivers\STM32F1xx_HAL_Driver\Inc/stm32f1xx_hal_uart.h \
- E:\LMTX\Electric_racing\v1\Core\Inc/tim.h \
+ E:\LMTX\Electric_racing\v1\Core\Inc/dma.h \
  E:\LMTX\Electric_racing\v1\Core\Inc/main.h \
+ E:\LMTX\Electric_racing\v1\Core\Inc/tim.h \
  E:\LMTX\Electric_racing\v1\Core\Inc/usart.h \
  E:\LMTX\Electric_racing\v1\Core\Inc/gpio.h \
  E:\LMTX\Electric_racing\v1\pid/PID.h \
@@ -72,4 +73,5 @@ CMakeFiles/v1.elf.dir/Core/Src/main.c.obj: \
  d:\clion\tools\gcc-arm-none-eabi-10.3-2021.10-win32\gcc-arm-none-eabi-10.3-2021.10\arm-none-eabi\include\string.h \
  d:\clion\tools\gcc-arm-none-eabi-10.3-2021.10-win32\gcc-arm-none-eabi-10.3-2021.10\arm-none-eabi\include\sys\_locale.h \
  d:\clion\tools\gcc-arm-none-eabi-10.3-2021.10-win32\gcc-arm-none-eabi-10.3-2021.10\arm-none-eabi\include\strings.h \
- d:\clion\tools\gcc-arm-none-eabi-10.3-2021.10-win32\gcc-arm-none-eabi-10.3-2021.10\arm-none-eabi\include\sys\string.h
+ d:\clion\tools\gcc-arm-none-eabi-10.3-2021.10-win32\gcc-arm-none-eabi-10.3-2021.10\arm-none-eabi\include\sys\string.h \
+ E:\LMTX\Electric_racing\v1\uart/USART_2.h

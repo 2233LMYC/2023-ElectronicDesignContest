@@ -18,6 +18,7 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "dma.h"
 #include "tim.h"
 #include "usart.h"
 #include "gpio.h"
@@ -31,6 +32,8 @@
 #include "oled.h"
 #include "stdio.h"
 #include "string.h"
+#include "USART_2.h"
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -56,7 +59,10 @@ extern float X_data,Y_data,None;
 
 uint8_t sbuf[20];
 
-extern float Init_CompareX;
+extern int rect_data[4][2];
+
+
+
 
 /* USER CODE END PV */
 
@@ -99,6 +105,7 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
+  MX_DMA_Init();
   MX_TIM2_Init();
   MX_TIM4_Init();
   MX_USART1_UART_Init();
@@ -112,6 +119,10 @@ int main(void)
 
   OLED_Init();
   OLED_DisplayTurn(1);
+
+  __HAL_UART_ENABLE_IT(&huart1, UART_IT_IDLE); //使能IDLE中断
+  HAL_UART_Receive_DMA(&huart1,uart2_rx_buffer,BUFFER_SIZE);
+
 
   PID_Param_Init(&Coordinate_To_Anglex, 0.05, 0.00315, -0.00);//定点走线
   PID_Param_Init(&Coordinate_To_Angley, 0.05, 0.00315, -0.00);//定点走线
@@ -129,15 +140,33 @@ int main(void)
 
     /* USER CODE BEGIN 3 */
 
-
+    Func_3();
+    KEY_Proc();
 
     memset(sbuf,0,20);
     sprintf((char*)sbuf,"x:%d y:%d",(int)X_data,(int)Y_data);
     OLED_ShowString(0,0,sbuf,12);
-    Func_2();
+
+
+    memset(sbuf,0,20);
+    sprintf((char*)sbuf,"x1:%d y1:%d",rect_data[0][0],rect_data[0][1]);
+    OLED_ShowString(0,2,sbuf,12);
+
+//    memset(sbuf,0,20);
+//    sprintf((char*)sbuf,"x2:%d y2:%d",(int)rect_data[1][0],(int)rect_data[1][1]);
+//    OLED_ShowString(0,3,sbuf,12);
+//
+//    memset(sbuf,0,20);
+//    sprintf((char*)sbuf,"x3:%d y3:%d",(int)rect_data[2][0],(int)rect_data[2][1]);
+//    OLED_ShowString(0,4,sbuf,12);
+//
+//    memset(sbuf,0,20);
+//    sprintf((char*)sbuf,"x4:%d y4:%d",(int)rect_data[3][0],(int)rect_data[3][1]);
+//    OLED_ShowString(0,5,sbuf,12);
+
+
     Servo_X_Angle_Set(Coordinate_To_Anglex.out);
     Servo_Y_Angle_Set(Coordinate_To_Angley.out);
-
     HAL_Delay(10);
 
   }

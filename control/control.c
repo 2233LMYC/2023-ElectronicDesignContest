@@ -3,6 +3,14 @@
 #include "tim.h"
 #include "PID.h"
 #include "stdio.h"
+#include "gpio.h"
+#include "usart.h"
+#include "string.h"
+#include "oled.h"
+
+
+abc flag;
+
 
 float coordinate[4][2] = {{435,45},  //左上角（x,y）
                         {30,45},   //右上角（x,y）
@@ -10,6 +18,7 @@ float coordinate[4][2] = {{435,45},  //左上角（x,y）
                         {435,445}};//右上角（x,y）
 
 extern float X_data,Y_data,None;
+extern float rect_data[4][2];
 
 /*X轴舵机初始化微调
  *Angle:调整角度
@@ -109,7 +118,8 @@ void Func_2(void)//顺时针绕外框
 //矩形
 void Func_3(void)
 {
-
+  Coordinate_To_Anglex.target = rect_data[0][0];
+  Coordinate_To_Angley.target = rect_data[0][1];
 }
 
 /**
@@ -136,3 +146,31 @@ void Coor_To_Angles_PIDy(float y_actual, float y_target) {
   else if(Coordinate_To_Anglex.out < -16) Coordinate_To_Anglex.out = -16;
 }
 
+void KEY_Proc(void)
+{
+  //追红点
+  if(HAL_GPIO_ReadPin(K5_GPIO_Port,K5_Pin) == 0)
+  {
+    HAL_Delay(10);
+    if(HAL_GPIO_ReadPin(K5_GPIO_Port,K5_Pin) == 0)
+    {
+      OLED_Clear();
+      HAL_UART_Transmit(&huart2, (uint8_t *) "RED", strlen("RED"), 1000);
+      flag.rect = 0;
+      flag.red = 1;
+    }
+  }
+  //识别矩形
+  if(HAL_GPIO_ReadPin(K4_GPIO_Port,K4_Pin) == 0)
+  {
+    HAL_Delay(10);
+    if(HAL_GPIO_ReadPin(K4_GPIO_Port,K4_Pin) == 0)
+    {
+      OLED_Clear();
+      HAL_UART_Transmit(&huart2, (uint8_t *) "RECT", strlen("RECT"), 1000);
+      flag.red = 0;
+      flag.rect = 1;
+    }
+  }
+
+}
