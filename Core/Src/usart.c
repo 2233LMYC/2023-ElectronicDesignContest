@@ -28,7 +28,7 @@
 
 uint8_t rec;
 uint8_t rec_buff[20];
-float X_data,Y_data;
+float X_data,Y_data,None;
 
 
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
@@ -44,12 +44,14 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
             // 解析字符串，查找"x="和"y="的位置
             const char*px = strstr((const char*)rec_buff, "X=");
             const char*py = strstr((const char*)rec_buff, "Y=");
-
-            if(px && py)
+            const char*pn = strstr((const char*)rec_buff,"None");
+            if(pn != NULL)  None = 1;
+            else if(px && py)
             {
-              X_data = atoff(px + 2); // +2是为了跳过"x="
-              Y_data = atoff(py + 2); // +2是为了跳过"y="
-              memset(rec_buff,0,20);
+                None = 0;
+                X_data = atoff(px + 2); // +2是为了跳过"x="
+                Y_data = atoff(py + 2); // +2是为了跳过"y="
+                memset(rec_buff,0,20);
             }
         }
     }

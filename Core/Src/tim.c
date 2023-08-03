@@ -28,10 +28,7 @@
 #include "gpio.h"
 #include "stdio.h"
 
-extern PID_struct WPospid_Servo_x;
-extern PID_struct NPospid_Servo_X;
-
-extern float X_data,Y_data;
+extern float X_data,Y_data,None;
 
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {

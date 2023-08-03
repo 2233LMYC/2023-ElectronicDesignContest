@@ -52,9 +52,7 @@
 
 /* USER CODE BEGIN PV */
 extern uint8_t rec;
-extern float X_data,Y_data;
-
-extern float X_data,Y_data;
+extern float X_data,Y_data,None;
 
 uint8_t sbuf[20];
 
@@ -118,8 +116,8 @@ int main(void)
   PID_Param_Init(&Coordinate_To_Anglex, 0.05, 0.00315, -0.00);//定点走线
   PID_Param_Init(&Coordinate_To_Angley, 0.05, 0.00315, -0.00);//定点走线
 
-  Coordinate_To_Anglex.target = 235;
-  Coordinate_To_Angley.target = 245;
+  Coordinate_To_Anglex.target = x_default;
+  Coordinate_To_Angley.target = y_default;
 
   /* USER CODE END 2 */
 

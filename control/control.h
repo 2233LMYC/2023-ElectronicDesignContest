@@ -7,33 +7,26 @@
 
 #include "main.h"
 
+//默认中心
 #define x_default 160
 #define y_default 150
 
-#define xianfu 14//限幅14度
 
+
+//行进速度
+#define y_speed 1.5
+#define x_speed 1.5
 
 #define TIM2_ARR							(2000-1)
 #define TIM2_PSC							(720-1)
 
-#define get_pwm(Angle) (50+(((Angle+95)*(1/90.0))/20*TIM2_ARR))
-
-
-
-typedef struct {
-
-   char _10ms;
-
-}fg;
-
-
+//舵机编号
 enum {
     x_servo = 1,
     y_servo,
 
 };
 
-void Set_Servo_angle(int servo,int pwm);
 void Servo_Init(void);
 void Servo_X_Angle_Set(float Angle);
 void Servo_Y_Angle_Set(float Angle);
