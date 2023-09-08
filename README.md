@@ -4,10 +4,10 @@
 2023电赛e题，自动追踪系统现场版本，运用STM32F103C8T6+openmv控制
 
 #### 使用软件
-Clion MDK5 CubeMX vofa+ 匿名上位机
+Clion OpenmvIDE MDK5 CubeMX vofa+ 匿名上位机
 
 #### 使用语言
-C
+C Micropython
 
 #### 实现方法
 
